@@ -10,7 +10,7 @@ on:
       - nodejs/**
 jobs:
   push:
-    name: "yolks:nodejs_${{ matrix.tag }}"
+    name: "Pterodactyl_NodeJS_v16.13.2:yolk"
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
@@ -38,8 +38,8 @@ jobs:
       - uses: docker/build-push-action@v4
         with:
           context: ./nodejs
-          file: ./nodejs/${{ matrix.tag }}/Dockerfile
+          file: ./yolk/Dockerfile
           platforms: linux/amd64,linux/arm64
           push: true
           tags: |
-            ghcr.io/parkervcp/yolks:nodejs_${{ matrix.tag }}
+            ghcr.io/stealth-software/Pterodactyl_NodeJS_v16.13.2:yolk
